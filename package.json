@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run pug",
+    "start": "npm run server & npm run pug -- -w",
+    "server": "live-server public",
     "pug": "pug _develop/pug/entry/*.pug -P -o public/"
   },
   "author": "",
@@ -16,6 +17,7 @@
     "browserify": "^13.0.1",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.0",
+    "live-server": "^1.0.0",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
     "pug": "^2.0.0-beta2",
