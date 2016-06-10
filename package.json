@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server & npm run pug -- -w & npm run sass -- -w -r --source-map true",
+    "start": "npm run server & npm run pug -- -w & npm run sass -- -w -r --source-map true & npm run watchify",
     "server": "live-server public",
     "pug": "pug _develop/pug/entry/*.pug -P -o public/",
-    "sass": "node-sass --output-style expanded --output public/css --source-map-contents _develop/scss/entry/"
+    "sass": "node-sass --output-style expanded --output public/css --source-map-contents _develop/scss/entry/",
+    "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "browserify": "^13.0.1",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.0",
+    "exorcist": "^0.4.0",
     "live-server": "^1.0.0",
     "node-sass": "^3.7.0",
     "postcss": "^5.0.21",
@@ -26,5 +28,17 @@
     "pug-cli": "^1.0.0-alpha6",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
   }
 }
