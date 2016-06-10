@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server & npm run pug -- -w",
+    "start": "npm run server & npm run pug -- -w & npm run sass -- -w -r --source-map true",
     "server": "live-server public",
-    "pug": "pug _develop/pug/entry/*.pug -P -o public/"
+    "pug": "pug _develop/pug/entry/*.pug -P -o public/",
+    "sass": "node-sass --output-style expanded --output public/css --source-map-contents _develop/scss/entry/"
   },
   "author": "",
   "license": "ISC",
@@ -18,11 +19,11 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.0",
     "live-server": "^1.0.0",
+    "node-sass": "^3.7.0",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
     "pug": "^2.0.0-beta2",
     "pug-cli": "^1.0.0-alpha6",
-    "sass": "^0.5.0",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   }

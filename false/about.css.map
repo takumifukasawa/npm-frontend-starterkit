@@ -1,0 +1,16 @@
+{
+	"version": 3,
+	"file": "../public/css/about.css",
+	"sources": [
+		"../_develop/scss/entry/about.scss",
+		"../_develop/scss/config/_setting.sass",
+		"../_develop/scss/layout/_base.sass"
+	],
+	"sourcesContent": [
+		"@import '../config/setting';\n@import '../layout/base'\n",
+		"",
+		"body {\n  background-color: yellow; }\n"
+	],
+	"mappings": "AEAA,AAAA,IAAI,CAAC;EACH,gBAAgB,EAAE,MAAO,GAAG",
+	"names": []
+}
