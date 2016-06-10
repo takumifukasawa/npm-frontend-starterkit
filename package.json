@@ -9,7 +9,8 @@
     "pug": "pug _develop/pug/entry/*.pug -P -o public/",
     "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
     "postcss": "postcss --config config/postcss.json --dir public/css tmp/css/*.css",
-    "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v"
+    "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v",
+    "sprity": "sprity create public/images/sprite/ ./_develop/images/sprite/*.png --orientation binary-tree -s ../../../_develop/scss/module/sprite.scss sprity-sass"
   },
   "author": "",
   "license": "ISC",
@@ -22,11 +23,15 @@
     "cssnano": "^3.7.0",
     "exorcist": "^0.4.0",
     "live-server": "^1.0.0",
+    "lwip": "0.0.9",
     "node-sass": "^3.7.0",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
     "pug": "^2.0.0-beta2",
     "pug-cli": "^1.0.0-alpha6",
+    "sprity": "^1.0.8",
+    "sprity-cli": "^1.0.1",
+    "sprity-sass": "^1.0.4",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   },
