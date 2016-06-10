@@ -10,7 +10,7 @@
     "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
     "postcss": "postcss --config config/postcss.json --dir public/css tmp/css/*.css",
     "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v",
-    "sprity": "sprity create public/images/sprite/ ./_develop/images/sprite/*.png --orientation binary-tree -s ../../../_develop/scss/module/sprite.scss sprity-sass"
+    "sprity": "sprity create public/images/ ./_develop/images/sprite/*.png --orientation binary-tree -c /images -s ../../_develop/scss/module/sprite.scss sprity-sass"
   },
   "author": "",
   "license": "ISC",

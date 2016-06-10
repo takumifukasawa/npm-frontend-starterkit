@@ -7,7 +7,7 @@
 		"../../_develop/scss/layout/_base.sass"
 	],
 	"sourcesContent": [
-		"@import '../config/setting';\n@import '../layout/base'\n",
+		"@import '../config/setting';\n\n//@import './../module/sprite';\n\n@import '../layout/base'\n",
 		"",
 		"body {\n  background-color: yellow; }\n"
 	],
