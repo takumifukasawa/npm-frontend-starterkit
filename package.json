@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server & npm run pug -- -w & npm run sass -- -w -r --source-map true & npm run watchify",
+    "start": "npm run server & npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
     "server": "live-server public",
     "pug": "pug _develop/pug/entry/*.pug -P -o public/",
-    "sass": "node-sass --output-style expanded --output public/css --source-map-contents _develop/scss/entry/",
+    "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
+    "postcss": "postcss --config config/postcss.json --dir public/css tmp/css/*.css",
     "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v"
   },
   "author": "",
