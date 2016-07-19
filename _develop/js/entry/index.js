@@ -1,9 +1,9 @@
+import AppController from './../controller/AppController.js';
+
 class Main {
-  constructor(opts = {}) {
-    console.log(opts.name);
+  static run() {
+    AppController.start();
   }
 }
 
-new Main({ name: 'test' });
-
-
+Main.run();

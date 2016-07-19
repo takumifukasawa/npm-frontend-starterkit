@@ -1,0 +1,29 @@
+{
+  "base": {
+    "url": "url",
+    "css_dir": "/assets/css/",
+    "js_dir": "/assets/js/",
+    "image_dir": "/assets/images/",
+    "hatena_share_link": "http://b.hatena.ne.jp/add?url=",
+    "facebook_share_link": "https://www.facebook.com/sharer/sharer.php?u=",
+    "line_share_link": "http://line.me/R/msg/text/?",
+    "twitter_share_link": "https://twitter.com/intent/tweet?"
+  },
+
+  "front": {
+    "path": "",
+    "meta": {
+      "title": "title",
+      "description": "description",
+      "keywords": "keywords",
+      "favicon_url": "favicon_url",
+      "facebook_app_id": "facebook_app_id",
+      "ogp_image_url": "ogp_image_url",
+      "site_name": "site_name",
+      "og_title": "og_title",
+      "og_description": "og_description",
+      "twitter_title": "twitter_title",
+      "twitter_description": ""
+    }
+  }
+}

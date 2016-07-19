@@ -1,0 +1,44 @@
+=position-initial
+  position: relative
+  top: initial
+  right: initial
+  bottom: initial
+  left: initial
+
+=absolute-center
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: auto
+
+=absolute($top, $right, $bottom, $left)
+  position: absolute
+  @if $top != ""
+    top: $top
+  @else
+    top: initial
+  @if $right != ""
+    right: $right
+  @else
+    right: initial
+  @if $bottom != ""
+    bottom: $bottom
+  @else
+    bottom: initial
+  @if $left != ""
+    left: $left
+  @else
+    left: initial
+
+=fixed($top, $right, $bottom, $left)
+  position: fixed
+  @if $top != ""
+    top: $top
+  @if $right != ""
+    right: $right
+  @if $bottom != ""
+    bottom: $bottom
+  @if $left != ""
+    left: $left

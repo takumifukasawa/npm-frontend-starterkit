@@ -1,9 +1,17 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset="utf-8")
-    link(rel="stylesheet" href="/css/style.css")
-  body
-    h1.head h1-title
-    div.icon.icon-btn_clear
-    script(src="/js/index.js")
+extend ../template/DefaultLayout
+
+block BeforeHTMLBlock
+
+block prepend Variables
+  - 
+    var meta = front.meta;
+    meta.url = base.url + front.path;
+  - 
+
+block StylesheetBlock
+  link(rel="stylesheet" href=base.css_dir + "style.css")
+
+block ContentBlock
+  #front
+
+block prepend JavascriptBlock

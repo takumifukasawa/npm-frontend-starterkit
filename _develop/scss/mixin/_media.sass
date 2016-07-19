@@ -1,0 +1,14 @@
+=pc($root: false)
+  //@media (max-width: $breakpoint)
+    @content
+  $selector: &
+  @if $root == true
+    @at-root (without: all)
+      body.is-pc
+        @content
+  @else 
+    @at-root body.is-pc
+      #{$selector}
+        @content
+
+

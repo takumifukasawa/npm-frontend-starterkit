@@ -1,0 +1,29 @@
+//
+// text
+// ------------------------------
+/*
+@mixin hide-text ($direction: $hide-text-direction) {
+    @if $hide-text-direction == left {
+        overflow: hidden;
+        text-indent: -9999em;
+        text-align: left;
+    } @else {
+        overflow: hidden;
+        white-space: nowrap;
+        text-indent: 110%;
+    }
+}
+*/
+
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin hide-text() {
+  font-size: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: -9999px;
+}
