@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../_develop/scss/layout/_base.sass"],"names":[],"mappings":"AAAA,KACE,qBAAyB,CAAG","file":"style.css","sourcesContent":["body {\n  background-color: yellow; }\n"]}

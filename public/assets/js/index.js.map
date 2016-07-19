@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "sources": [
+    "node_modules/browser-pack/_prelude.js",
+    "_develop/js/controller/AppController.js",
+    "_develop/js/controller/page/frontController.js",
+    "_develop/js/core/Router.js",
+    "_develop/js/entry/index.js",
+    "_develop/js/util/singleton.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;;;;;;;;;ACAA,AAAO,AAAY;;;;AAEnB,AAAO,AAAqB,AAE5B,AAAe;;;;;;;;IAAA,AAAM,AAAc,AACjC,AAAO;;;;;;;4BAAQ,AACb;UAAM,WAAW,iBAAjB,AAAwB,AACxB;UAAM,QAAQ,iBAAd,AAAc,AAAO,AACrB;UAAI,aAAJ,AAAiB,AAEjB;;cAAA,AAAO,AACL;aAAK,SAAL,AAAc,AACZ;uBAAA,AAAa,AACb;AACF;AACE;AALJ,AAQA;;;UAAA,AAAG,YAAY,WAAA,AAAW,AAC3B;AAfgC;;;;;;;;;;;;;;;;;ACJnC,AAAO,AAAe,AAEtB;;;;;;;;IAAA,AAAM,AAAgB,AACpB;;AAAc,AAAE;AAEhB;;;;0BAAM,AACJ;cAAA,AAAQ,IAAR,AAAY,AACb;AALmB,AAQtB;;;;;;kBAAe,yBAAf,AAAe,AAAU;;;;;;;;;;;;;ICVV,AAAM,AAAO,AAC1B;;AAAc,AAAE;AAEhB,AAAW;;;;iCAMS,AAClB;UAAI,OAAJ,AAAW,AACX;WAAI,IAAJ,AAAQ,OAAO,KAAf,AAAoB,UAAU,AAC5B;YAAI,QAAQ,KAAA,AAAK,SAAjB,AAAY,AAAc,AAC1B;YAAI,OAAO,SAAA,AAAS,cAApB,AAAW,AAAuB,AAClC;YAAA,AAAG,MAAM,AACP;iBAAA,AAAO,AACP;AACD;AACF;AACD;aAAA,AAAO,AACR;AApByB;;;wBAGJ,AACpB;;eAAA,AAAO,AACE,AAEV;AAHQ,AACL;AAIJ,AAAO;;;;;;;;;;;;;ACTT,AAAO,AAAmB,AAE1B;;;;;;;;IAAA,AAAM,AAAK,AACT,AAAO;;;;;;;0BAAM,AACX;8BAAA,AAAc,AACf;AAHQ;;;;;;AAMX,KAAA,AAAK;;;;;;;;;ACRL;AACA;AACA,AAEA;;AAAe,SAAA,AAAS,UAAT,AAAmB,OAAO,AACvC;MAAI,WAAJ,AAAe,AACf;SAAO,YAAU,AACf;QAAG,CAAH,AAAI,UAAU,AACZ;iBAAW,IAAX,AAAW,AAAI,AAChB;AACD;WAAA,AAAO,AACR;AALD,AAMD",
+  "file": "generated.js",
+  "sourceRoot": "",
+  "sourcesContent": [
+    "(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\"Cannot find module '\"+o+\"'\");throw f.code=\"MODULE_NOT_FOUND\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})",
+    "import Router from './../core/Router.js';\n\nimport frontController from './page/frontController.js';\n\nexport default class AppController {\n  static start() {\n    const routings = Router.Routings;\n    const route = Router.getRouting();\n    let controller = null;\n\n    switch(route) {\n      case routings.FRONT:\n        controller = frontController();\n        break;\n      default:\n        break;\n    }\n\n    if(controller) controller.run();\n  }\n}\n",
+    "import singleton from './../../util/singleton';\n\nclass FrontController {\n  constructor() {}\n\n  run() {\n    console.log('FrontController');\n  }\n}\n\nexport default singleton(FrontController);\n",
+    "export default class Router {\n  constructor() {}\n\n  static get Routings() {\n    return {\n      FRONT: '#front'\n    };\n  }\n\n  static getRouting() {\n    let type = null;\n    for(let key in this.Routings) {\n      let route = this.Routings[key];\n      let page = document.querySelector(route);\n      if(page) {\n        type = route;\n        break;\n      }\n    }\n    return type;\n  }\n}\n",
+    "import AppController from './../controller/AppController.js';\n\nclass Main {\n  static run() {\n    AppController.start();\n  }\n}\n\nMain.run();\n",
+    "// シングルトンパターン化する\n// const getInstance = singleton(MyClass);\n// const myClass = getInstance();\n\nexport default function singleton(Klass) {\n  let instance = null;\n  return function(){\n    if(!instance) {\n      instance = new Klass();\n    }\n    return instance;\n  }\n};\n\n\n"
+  ]
+}
