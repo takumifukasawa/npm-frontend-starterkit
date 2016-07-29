@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "npm run watch & npm run server",
+    "build": "npm run pug && npm run watchify && npm run sass -r --source-map true && npm run postcss",
     "watch": "npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
     "server": "live-server $npm_package_config_dist_dir",
     "pug": "pug $npm_package_config_pug_entry_file -P --hierarchy -O $npm_package_config_config_file -o $npm_package_config_dist_dir",
