@@ -3,25 +3,41 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "config_file": "config/data.json",
+    "dist_dir": "public/",
+    "dev_dir": "_develop/",
+    "scss_entry_dir": "_develop/scss/entry/",
+    "postcss_config_file": "config/postcss.json",
+    "postcss_dist_dir": "public/assets/css",
+    "pug_dir": "_develop/pug",
+    "pug_entry_dir": "_develop/pug/entry/",
+    "pug_entry_file": "_develop/pug/entry/*.pug",
+    "js_entry_file": "_develop/js/entry/index.js",
+    "js_map_file": "public/assets/js/index.js.map",
+    "js_output_file": "public/assets/js/index.js"
+  },
   "scripts": {
-    "start": "npm run server & npm run watch",
+    "start": "npm run watch & npm run server",
     "watch": "npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
-    "server": "live-server public",
-    "pug": "pug _develop/pug/entry/*.pug -P --hierarchy -O config/pug.json -o public/",
-    "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
-    "postcss": "postcss --config config/postcss.json --dir public/assets/css tmp/css/*.css",
-    "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/assets/js/index.js.map > public/assets/js/index.js' -d -v",
+    "server": "live-server $npm_package_config_dist_dir",
+    "pug": "pug $npm_package_config_pug_entry_file -P --hierarchy -O $npm_package_config_config_file -o $npm_package_config_dist_dir",
+    "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents $npm_package_config_scss_entry_dir",
+    "postcss": "postcss --config $npm_package_config_postcss_config_file --dir $npm_package_config_postcss_dist_dir tmp/css/*.css",
+    "watchify": "watchify $npm_package_config_js_entry_file -t babelify -o 'exorcist $npm_package_config_js_map_file > $npm_package_config_js_output_file' -d -v",
     "sprity-front-pc": "sprity create ./public/assets/images/front/ ./_develop/images/sprite/front-pc/*.png --prefix sprite-front-pc -n _sprite-front-pc --orientation binary-tree -c /assets/images/front -s ../../../../_develop/scss/module/_sprite-front-pc.scss sprity-sass",
     "sprity-front-sp": "sprity create ./public/assets/images/front/ ./_develop/images/sprite/front-sp/*.png --prefix sprite-front-sp -n _sprite-front-sp --orientation binary-tree -c /assets/images/front -s ../../../../_develop/scss/module/_sprite-front-sp.scss sprity-sass -d 1:72 -d 2:144"
   },
-  "author": "",
+  "author": "takumifukasawa",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "latest",
     "babel-core": "latest",
+    "babel-plugin-transform-runtime": "latest",
     "babel-polyfill": "latest",
     "babel-preset-es2015": "latest",
     "babel-preset-stage-0": "latest",
+    "babel-runtime": "latest",
     "babelify": "latest",
     "browserify": "latest",
     "css-mqpacker": "latest",
@@ -47,6 +63,10 @@
         {
           "presets": [
             "es2015"
+          ],
+          "plugins": [
+            "transform-runtime",
+            "babel-polyfill"
           ]
         }
       ]
