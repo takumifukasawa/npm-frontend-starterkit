@@ -1,20 +1,12 @@
 # npm-frontend-starterkit
 
-
 ```
 使い方
 
-$ npm i
+$ yarn
 
-$ npm start
-  -> pug,scss,watchifyのwatchと簡易サーバーが立ち上げる
-
-$ npm run build
-  -> コンパイルだけさせたいとき
-
-$ npm run sprity-front-pc
-$ npm run sprity-front-sp
-  -> spはretina用のスプライト画像が書き出される
+$ yarn start
+  -> pug,postcss,watchifyのwatchと簡易サーバーが立ち上げる
 
 ```
 
@@ -25,10 +17,7 @@ pug
 watchify + babel
 
 ## css
-sass
-
-## image
-sprity
+postcss
 
 ## server
-liver-server
+browser-sync
