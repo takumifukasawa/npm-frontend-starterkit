@@ -1,0 +1,11 @@
+
+extends ./template/defaultLayout.pug
+
+block stylesheet
+  link(rel="stylesheet" href="./css/main.css?t="+Date.now())
+
+block content
+  h1 Index
+
+block javascript
+  script(src="./js/app.js?t="+Date.now())

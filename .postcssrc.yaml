@@ -1,0 +1,19 @@
+parser: postcss-scss
+plugins:
+  postcss-import: {}
+  postcss-utilities: {}
+  postcss-mixins: {}
+  precss: {}
+  postcss-assets:
+    postcss-assets:
+      basePath: "./public/"
+      baseUrl: "../"
+      cachebuster: true
+      loadPaths: [ "images/" ]
+  autoprefixer:
+    browsers: [
+      "ie >= 10",
+      "ios >= 8",
+      "android >= 4.0"
+    ]
+  cssnano: {}
